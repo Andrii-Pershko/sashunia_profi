@@ -1,0 +1,230 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Manrope&display=swap');
+
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+ul {
+	list-style: none;
+}
+
+body {
+	position: relative;
+	background-color: #0D0909;
+	background-image: url('./images/pngLine.png');
+	font-family: "Manrope", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
+}
+
+/* body::before {
+	width: 100%;
+    height: 247%;
+    content: "";
+    position: absolute;
+    top: 35px;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(./images/pngLine.png);
+    background-repeat: repeat;
+    background-size: cover;
+    transform: rotate(90deg) translate(-136%, 10px);
+    transform-origin: center;
+    z-index: -1;
+} */
+
+
+.anton-text{
+	font-family: "Anton", sans-serif !important; 
+	font-weight: 400;
+	font-style: normal;
+}
+
+
+.container {
+	width: 1980px;
+	padding: 0 40px;
+}
+
+header {
+	font-family: "Manrope", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	justify-content: space-between;
+	padding-top: 26px;
+	color: #fff;
+	display: flex;
+}
+
+header ul {
+	display: flex;
+	justify-content: space-between;
+}
+
+nav {
+	width: 500px;
+}
+
+.hero {
+	padding-top: 20px;
+	position: relative;
+	height: 1415px;
+	color: #fff;
+}
+
+.rlater{
+	position: absolute;
+	top: 41px;
+    right: 176px;
+}
+
+.clawr {
+	position: absolute;
+    top: 50px;
+    right: 185px;
+}
+
+.primal-elipse{
+	position: absolute;
+    left: 50%;
+    transform: translate(-50%, 10px);
+    z-index: 1;
+    width: 1980px;
+    top: 0;
+}
+
+.primal-bear{
+	position: absolute;
+	top: -61px;
+	left: 50%;
+	transform: translate(-50%, 0);
+	z-index: 2;
+}
+
+.invest-plate{
+	position: absolute;
+	position: absolute;
+    top: 871px;
+    right: -47px;
+    z-index: 3;
+}
+.welcome-text{
+	color: rgba(255, 255, 255, 0.1);
+    position: absolute;
+    width: 403px;
+    top: 444px;
+    right: 0;
+    text-align: justify;
+    size: 18px;
+}
+
+.culture-text {
+	position: absolute;
+    top: 904px;
+    width: 453px;
+    font-weight: 600;
+    font-size: 24px;
+    z-index: 2;
+	background: linear-gradient(180deg, #fff 30%, #656565 95%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #fff;
+}
+
+.background-top {
+	margin-top: -95px;
+    position: absolute;
+    z-index: 2;
+    left: -40px;
+    width: 1980px;
+}
+
+.background-bottom {
+	margin-left: -40px;
+	width: 1980px;
+}
+
+.welcome {
+	position: relative;
+}
+
+.welcome * {
+	z-index: 4;
+}
+
+.our-goal{
+	color: #000000;
+    position: absolute;
+    top: 150px;
+    left: 20PX;
+    width: 465px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.welcome-claw {
+	position: absolute;
+	top: 0;
+	left: 0;
+	left: 500px;
+	top: 20px;
+}
+
+.welcone-title {
+	position: absolute;
+    top: 150px;
+    right: 0;
+    width: 1517px;
+    font-size: 220px;
+    text-align: right;
+	text-transform: uppercase;
+	letter-spacing: -8px;
+	line-height: 220px;
+	background: linear-gradient(180deg, #0D0909 30%, #656565 95%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #000;
+}
+.welcone-title span {
+	display: block;
+}
+
+.welcome-bottom-text{
+	color: #000;
+}
+
+.welcome-bottom-text .realm {
+	position: absolute;
+    bottom: 440px;
+    width: 469px;
+    font-size: 18px;
+}
+
+.welcome-bottom-text .our-items {
+	position: absolute;
+	display: flex;
+	width: 470px;
+	justify-content: space-between;
+    bottom: 380px;
+    width: 469px;
+    font-size: 18px;
+}
+
+.welcome-second {
+	position: absolute;
+    color: rgb(0 0 0 / 10%);
+    width: 294px;
+    font-size: 18px;
+    right: 487px;
+    bottom: -206px;
+}
+
+.container-welcome {
+	/* overflow: hidden; */
+}
