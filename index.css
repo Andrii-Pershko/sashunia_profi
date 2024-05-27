@@ -315,6 +315,7 @@ nav {
 	font-size: 30px;
 	transform: translate(-50%, 0);
 	color: #5F5F5F;
+	letter-spacing: 0;
 }
 
 .current-page {
