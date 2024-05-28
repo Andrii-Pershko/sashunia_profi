@@ -699,3 +699,40 @@ nav {
 	bottom: 0;
 
 }
+.footer div.marquee-infinite-footer {
+	position: absolute;
+	color: #fff;
+	width: 1980px;
+	margin-left: -30px;
+	margin-bottom: 100px;
+	background: #000000;
+	overflow: hidden;
+    bottom: -266px;
+    margin: 0;
+    margin-left: -40px;
+	padding: 47px 0;
+}
+
+.marquee-infinite-footer div {
+	display: flex;
+	width: 200%;
+	animation: marquee-text-footer 2s linear infinite;
+	margin: 0;
+}
+
+.marquee-infinite-footer div h1 {
+	text-transform: uppercase;
+	letter-spacing: 0;
+
+}
+
+@keyframes marquee-text-footer {
+	0% {
+		transform: translateX(0%);
+	}
+
+	100% {
+		transform: translateX(-10.75%);
+	}
+}
+
