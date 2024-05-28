@@ -527,8 +527,175 @@ nav {
 
 /* FAQ */
 
+.faq {
+	position: relative;
+	height: 2568px;
+	padding-top: 1268px;
+}
+
 .background-bear {
-	margin-top: -395px;
-	z-index: -1;
 	position: absolute;
+	top: -95px;
+	z-index: -1;
+}
+
+.faq-text {
+	background: linear-gradient(180deg, #FF00C7 8%, #0D0909 95%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: #000;
+	font-size: 300px;
+}
+
+.elipse8 {
+	width: 610px;
+	margin-top: -450px;
+	margin-left: -40px;
+	position: absolute;
+	z-index: -1;
+}
+
+.claw-faq {
+	position: absolute;
+	width: 300px;
+	transform: rotate(138deg) translate(-251px, -204px);
+}
+
+.hidden-q {
+	color: #fff;
+	margin-left: 470px;
+
+}
+
+.hidden-q h3 {
+	font-size: 60px;
+	line-height: 72px;
+	position: relative;
+}
+
+
+
+.hidden-q p {
+	width: 746px;
+	font-size: 18px;
+	line-height: 21.6px;
+	height: 0px;
+	overflow: hidden;
+}
+
+.hidden-q li {
+	margin-bottom: 60px;
+}
+
+.hidden-q h3::after {
+	content: '';
+	position: absolute;
+	width: 40px;
+	height: 14px;
+	background: linear-gradient(140deg, #b90090 76%, #0D0909 113%);
+	right: 0;
+	top: 50%;
+	transform: translate(0, -50%);
+}
+
+
+.hidden-q h3::before {
+	content: '';
+	position: absolute;
+	width: 40px;
+	height: 14px;
+	background: linear-gradient(61deg, #b90090 71%, #0D0909 109%);
+	right: 0;
+	top: 50%;
+	transform: rotate(90deg) translate(-17%, 0%);
+}
+
+.claw-faq-2 {
+	position: absolute;
+	bottom: 320px;
+	left: -81px;
+	transform: rotate(-45deg);
+}
+
+.claw-faq-3 {
+	position: absolute;
+	bottom: 181px;
+	left: 109px;
+}
+
+/* FAQ */
+
+/* footer */
+
+
+.footer {
+	position: relative;
+	display: flex;
+}
+
+.footer-background-top {
+	width: 1980px;
+	left: -40px;
+	top: -65px;
+	position: absolute;
+	z-index: -1;
+}
+
+.footer-claw {
+	width: 418px;
+	position: absolute;
+	left: 780px;
+	top: 289px;
+	transform: rotate(191deg);
+}
+
+.footer-title {
+	font-size: 233px;
+	line-height: 233px;
+	width: 1085px;
+	letter-spacing: -6px;
+	background: linear-gradient(180deg, #fff 0%, #656565 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: #fff;
+	letter-spacing: -6px;
+}
+
+.footer ul {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+}
+
+.footer div {
+	margin-top: 50px;
+}
+
+.footer div:not(:nth-child(2)) {
+	margin-left: auto;
+	position: relative;
+}
+
+.footer .go-line {
+	position: absolute;
+}
+
+.foote-we {
+	width: 453px;
+	text-align: left;
+	margin-left: auto;
+	background: linear-gradient(180deg, #0D0909 0%, #656565 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: #fff;
+}
+
+.discort {
+	position: absolute;
+	width: 580px;
+	width: 581px;
+	left: -123px;
+	position: absolute;
+	bottom: 0;
+
 }
