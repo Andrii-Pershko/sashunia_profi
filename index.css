@@ -7,6 +7,16 @@
 	box-sizing: border-box;
 }
 
+::-webkit-scrollbar { /* chrome based */
+    width: 0px;  /* ширина scrollbar'a */
+    background: transparent;  /* опционально */
+}
+
+html {
+    -ms-overflow-style: none;  /* IE 10+ */
+    scrollbar-width: none; /* Firefox */
+}
+
 ul {
 	list-style: none;
 }
@@ -14,7 +24,6 @@ ul {
 body {
 	position: relative;
 	background-color: #0D0909;
-	background-image: url('./images/pngLine.png');
 	font-family: "Manrope", sans-serif;
 	font-size: 18px;
 	font-optical-sizing: auto;
@@ -25,27 +34,36 @@ body {
 	margin: auto;
 }
 
+
+body::after{
+	content: '';
+	width: 100%;
+	height: 100%;
+	display: block;
+	background-image: url('./images/pngLine-v.png');
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -5;
+	background-position: 40px;
+}
+
+body::before{
+	content: '';
+	width: 100%;
+	height: 100%;
+	display: block;
+	background-image: url('./images/pngLine.png');
+	background-position: center 59px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -5;
+}
+
 main {
 	overflow-x: hidden;
 }
-
-/* body::before {
-	width: 100%;
-    height: 247%;
-    content: "";
-    position: absolute;
-    top: 35px;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-image: url(./images/pngLine.png);
-    background-repeat: repeat;
-    background-size: cover;
-    transform: rotate(90deg) translate(-136%, 10px);
-    transform-origin: center;
-    z-index: -1;
-} */
-
 
 .anton-text {
 	font-family: "Anton", sans-serif !important;
@@ -79,6 +97,14 @@ nav {
 	width: 500px;
 }
 
+.bear-pazle{
+	position: absolute;
+	top: -61px;
+	left: 50%;
+	transform: translate(-50%, 0);
+	z-index: 2;
+}
+
 .hero {
 	padding-top: 20px;
 	position: relative;
@@ -86,6 +112,10 @@ nav {
 	color: #fff;
 }
 
+.sweet-bears text{
+	z-index: 20;
+	position: relative;
+}
 .rlater {
 	position: absolute;
 	top: 23px;
@@ -115,6 +145,82 @@ nav {
 	z-index: 2;
 }
 
+.primal-bear-1 {
+	opacity: 0;
+	position: absolute;
+    bottom: 2px;
+    z-index: 3;
+    left: 544px;
+	animation: pazle 500ms linear forwards;
+	animation-delay: 600ms;
+}
+
+.primal-bear2 {
+	opacity: 0;
+	position: absolute;
+    top: -61px;
+    left: 924px;
+    z-index: 4;
+    width: 589px;
+	animation: pazle 500ms linear forwards;
+	animation-delay: 500ms;
+
+}
+.primal-bear3 {
+	opacity: 0;
+	bottom: 1px;
+    position: absolute;
+    z-index: 4;
+    left: 881px;
+    width: 479px;
+	animation: pazle 500ms linear forwards;
+	animation-delay: 400ms;
+}
+
+.primal-bear4 {
+	position: absolute;
+	opacity: 0;
+    left: 389px;
+    top: -61px;
+    z-index: 4;
+    width: 535px;
+	animation: pazle 500ms linear forwards;
+	animation-delay: 300ms;
+}
+
+.primal-bear6 {
+	position: absolute;
+	opacity: 0;
+    top: 495px;
+    left: 874px;
+    z-index: 4;
+    width: 637.5px;
+	animation: pazle 500ms linear forwards;
+	animation-delay: 200ms;
+}
+
+.primal-bear7 {
+	position: absolute;
+	opacity: 0;
+    left: 389px;
+    z-index: 4;
+    bottom: 290px;
+    width: 486.5px;
+	animation: pazle 500ms linear forwards;
+	animation-delay: 100ms;
+}
+
+
+ @keyframes pazle {
+    0% {
+        opacity: 0; /* Початкова позиція картинки */
+    }
+    100% {
+        opacity: 1; /* Кінцева позиція картинки */
+    }
+}
+
+
 .invest-plate {
 	position: absolute;
 	position: absolute;
@@ -126,7 +232,7 @@ nav {
 .welcome-text {
 	color: rgba(255, 255, 255, 0.1);
 	position: absolute;
-	width: 403px;
+	width: 454px;
 	top: 444px;
 	right: 0;
 	text-align: justify;
@@ -736,3 +842,132 @@ nav {
 	}
 }
 
+/* preloader */
+#preloader{
+	z-index: 1;
+    position: absolute;
+}
+
+
+.loader .claw-loader:nth-child(1) {
+    position: absolute;
+    top: 56px;
+    left: -96px;
+    transform: rotate(45deg);
+}
+
+.loader .claw-loader:nth-child(2) {
+	position: absolute;
+    top: -81px;
+    left: 114px;
+    transform: rotate(80deg);
+}
+
+.loader .claw-loader:nth-child(3) {
+	position: absolute;
+    top: 232px;
+    left: 174px;
+    transform: rotate(45deg);
+}
+
+.loader .claw-loader:nth-child(4) {
+	position: absolute;
+    top: 102px;
+    left: 507px;
+    transform: rotate(95deg);
+}
+
+.loader .claw-loader:nth-child(5) {
+	position: absolute;
+    top: 402px;
+    left: 570px;
+    transform: rotate(17deg);
+}
+
+.loader .claw-loader:nth-child(6) {
+	position: absolute;
+    top: 233px;
+    left: 865px;
+    transform: rotate(68deg);
+}
+
+.loader .claw-loader:nth-child(7) {
+	position: absolute;
+    top: 515px;
+    left: 1120px;
+    transform: rotate(13deg);
+}
+
+.loader .claw-loader:nth-child(8) {
+	position: absolute;
+    top: 286px;
+    left: 1257px;
+    transform: rotate(57deg);
+}
+
+.loader .claw-loader:nth-child(9) {
+	position: absolute;
+    top: 568px;
+    left: 1519px;
+    transform: rotate(-8deg);
+}
+
+.loader .claw-loader:nth-child(10) {
+	position: absolute;
+    top: 325px;
+    left: 1698px;
+    transform: rotate(36deg);
+}
+
+.loader .claw-loader:nth-child(11) {
+	position: absolute;
+    top: 618px;
+    left: 1883px;
+    transform: rotate(3deg);
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+ 
+    }
+	50% {
+        opacity: 0.8;
+ 
+    }
+    80% {
+        opacity: 0.8;
+		clip-path: circle(100% at 50% 50%);
+ 
+    }
+	100% {
+		opacity: 0;
+		clip-path: circle(0% at 50% 50%);
+	}
+}
+
+
+
+.claw-loader {
+    opacity: 0;
+    animation-fill-mode: linear;
+	
+}
+
+.claw-loader.appear {
+    animation-name: appear;
+    animation-duration: 1s; /* Тривалість з'явлення */
+    animation-timing-function: ease; /* Плавне з'явлення */
+}
+
+/* Стилі для ефекту зникнення прелоадера */
+@keyframes slideAndFadeOut {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+}

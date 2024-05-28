@@ -1,27 +1,44 @@
- // Функція для створення таблиці
- function createTable() {
-	var table = document.getElementById('dynamic-table');
-	var windowWidth = window.innerWidth;
-	var windowHeight = window.innerHeight;
+document.addEventListener('DOMContentLoaded', () => {
+    const loaders = document.querySelectorAll('.claw-loader');
+    const numLoaders = loaders.length;
+    const appearDuration = 200; // Час з'явлення елемента в мс
+    const disappearDelay = 1000; // Затримка перед зникненням елемента в мс
+    const disappearDuration = 1000; // Тривалість зникнення елемента в мс
 
-	var numRows = Math.floor(windowHeight / 400); // Висота кожної комірки
-	var numCols = Math.floor(windowWidth / 300); // Ширина кожної комірки
+    let index = 0;
+    let shown = []; // Масив, що зберігає порядок з'явлення елементів
 
-	var tableHTML = '';
-	for (var i = 0; i < numRows; i++) {
-		tableHTML += '<tr>';
-		for (var j = 0; j < numCols; j++) {
-			tableHTML += '<td></td>'; // Додаємо комірку у кожен рядок
-		}
-		tableHTML += '</tr>';
-	}
+    function showLoader() {
+        if (shown.length === numLoaders) {
+            // Якщо всі елементи показані, очистіть масив та розпочніть знову
+            shown = [];
+        }
 
-	table.innerHTML = tableHTML;
-}
+        // Додаємо елементи в масив shown у порядку з'явлення
+        shown.push(index);
 
-// Викликаємо функцію при завантаженні сторінки та при зміні розміру вікна
-window.onload = createTable;
-window.onresize = createTable;
+        // Показуємо елемент
+        loaders[index].classList.add('appear');
 
-// Викликаємо функцію при зміні розміру вікна
-window.addEventListener('resize', createTable);
+        // Встановлюємо затримку перед зникненням елемента
+        setTimeout(() => {
+            loaders[shown.shift()].classList.remove('appear'); // Зникає перший показаний елемент
+        }, disappearDelay + disappearDuration);
+
+        // Підготовка для наступного показу елемента
+        index = (index + 1) % numLoaders;
+    }
+
+    // Початок показу елементів
+    setInterval(showLoader, appearDuration);
+});
+
+
+
+window.addEventListener('load', function() {
+
+	
+	console.log('Example', )
+	document.getElementById('preloader').style.display = 'none';
+	document.getElementById('content').style.display = 'block';
+});
