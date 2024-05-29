@@ -178,13 +178,13 @@ header a:hover {
 
 @keyframes elipse {
 0% {
-transform: translate(-50%, 10px) scale(1); /* Початкова позиція картинки */
+transform: translate(-50%, 10px) scale(1.1); /* Початкова позиція картинки */
 }
 50% {
 transform: translate(-50%, 10px) scale(0.8) /* Кінцева позиція картинки */
 }
 100% {
-	transform: translate(-50%, 10px) scale(1)
+	transform: translate(-50%, 10px) scale(1.1)
 }
 }
 
@@ -276,21 +276,76 @@ transform: translate(-50%, 10px) scale(0.8) /* Кінцева позиція к�
 .invest-container {
 	position: absolute;
 	top: 871px;
-	left: 1400px;
+	left: 1425px;
 	height: 228px;
 	width: 543px;
 	z-index: 3;
 }
 
-.invest-plate{
+.invest-plate {
 	height: 100%;
 	transition: all 700ms;
+	height: 228px;
+	width: 450px;
 }
 
 
-.invest-container:hover img {
-width: 200px;
-transition: all 500ms;
+.invest-back img {
+    width: 450px;
+}
+
+.front-invest {
+	width: 450px;
+	transition: width 1s linear;
+	overflow: hidden;
+}
+
+.invest-container:hover .front-invest  {
+	width: 200px;
+	overflow: hidden;
+	transition: all 1000ms linear;
+}
+
+.invest-back {
+	width: 450px;
+	height: 233px;
+    right: -406px;
+    bottom: 37px;
+}
+
+.back-invest {
+	position: absolute;
+    top: 25px;
+	margin-top: -29px;
+    right: 115px;
+    width: 0px;
+    overflow: hidden;
+	opacity: 0;
+	transition: width 900ms  linear, right 900ms linear, opacity 900ms cubic-bezier(1,0,1,0)
+
+}
+
+.invest-container .back-invest::after {
+	content: "";
+    display: block;
+    width: 9px;
+    height: 93%;
+    background: linear-gradient(90deg, rgba(27, 27, 27, 1) 0%, rgba(227, 227, 227, 1) 47%, rgba(93, 93, 93, 1) 100%);
+    position: absolute;
+    top: 5px;
+    right: 0;
+
+}
+
+
+.invest-container:hover .back-invest {
+	width: 250px;
+    margin-top: -29px;
+    overflow: hidden;
+    right: 343px;
+    transition: width 1000ms linear, right 1000ms linear, opacity 100ms linear;
+	transition-delay: 100ms;
+	opacity: 1;
 }
 
 
