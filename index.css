@@ -296,14 +296,14 @@ transform: translate(-50%, 10px) scale(0.8) /* Кінцева позиція к�
 
 .front-invest {
 	width: 450px;
-	transition: width 1s linear;
+	transition: width 500ms linear;
 	overflow: hidden;
 }
 
 .invest-container:hover .front-invest  {
 	width: 200px;
 	overflow: hidden;
-	transition: all 1000ms linear;
+	transition: all 300ms linear;
 }
 
 .invest-back {
@@ -321,7 +321,7 @@ transform: translate(-50%, 10px) scale(0.8) /* Кінцева позиція к�
     width: 0px;
     overflow: hidden;
 	opacity: 0;
-	transition: width 900ms  linear, right 900ms linear, opacity 900ms cubic-bezier(1,0,1,0)
+	transition: width 400ms  linear, right 400ms linear, opacity 400ms cubic-bezier(1,0,1,0)
 
 }
 
@@ -330,11 +330,12 @@ transform: translate(-50%, 10px) scale(0.8) /* Кінцева позиція к�
     display: block;
     width: 9px;
     height: 93%;
+	opacity: 0;
     background: linear-gradient(90deg, rgba(27, 27, 27, 1) 0%, rgba(227, 227, 227, 1) 47%, rgba(93, 93, 93, 1) 100%);
     position: absolute;
     top: 5px;
     right: 0;
-
+	transition: opacity 300ms linear;
 }
 
 
@@ -343,9 +344,13 @@ transform: translate(-50%, 10px) scale(0.8) /* Кінцева позиція к�
     margin-top: -29px;
     overflow: hidden;
     right: 343px;
-    transition: width 1000ms linear, right 1000ms linear, opacity 100ms linear;
-	transition-delay: 100ms;
+    transition: width 400ms linear, right 400ms linear, opacity 100ms linear;
 	opacity: 1;
+}
+
+.invest-container:hover .back-invest::after  {
+	opacity: 1;
+	transition: opacity 300ms linear;
 }
 
 
@@ -385,6 +390,8 @@ transform: translate(-50%, 10px) scale(0.8) /* Кінцева позиція к�
 	width: 1990px;
 }
 
+/* welcome */
+
 .welcome {
 	position: relative;
 }
@@ -405,13 +412,19 @@ transform: translate(-50%, 10px) scale(0.8) /* Кінцева позиція к�
 
 .welcome-claw {
 	position: absolute;
-	top: 0;
-	left: 0;
 	left: 500px;
 	top: 20px;
+	height: 0;
+    overflow: hidden;
 }
 
-.welcone-title {
+.welcome-claw.show {
+	height: 303px;
+	transition: all 1500ms;
+	transition-delay: 600ms;
+}
+
+.welcome-title {
 	position: absolute;
 	top: 150px;
 	right: 0;
@@ -421,15 +434,46 @@ transform: translate(-50%, 10px) scale(0.8) /* Кінцева позиція к�
 	text-transform: uppercase;
 	letter-spacing: -8px;
 	line-height: 220px;
-	background: linear-gradient(180deg, #0D0909 30%, #656565 95%);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	color: #000;
+
 }
 
-.welcone-title span {
+.welcome-title > span {
 	display: block;
+	overflow: hidden;
 }
+
+.welcome-title span span.inside {
+	transform: translate(0, 210px);
+    display: block;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+
+.welcome-title span .inside1{
+
+	background: linear-gradient(180deg, #0D0909 30%, #404040 95%);
+
+}
+.welcome-title span.inside2{
+
+	background: linear-gradient(180deg, #414141 30%, #585858 95%)
+}
+.welcome-title span.inside3{
+
+	background: linear-gradient(180deg, #585858 30%, #656565 95%);
+
+}
+
+
+
+.welcome-title span span.visible {
+	transform: translate(0, 0px);
+    display: block;
+	transition: transform 1000ms ease-in-out;
+}
+
 
 .welcome-bottom-text {
 	color: #000;
@@ -440,7 +484,62 @@ transform: translate(-50%, 10px) scale(0.8) /* Кінцева позиція к�
 	bottom: 380px;
 	width: 469px;
 	font-size: 18px;
+	font-weight: 600;
+	height: 102px;
+
 }
+
+.welcome-bottom-text .realm span {
+	width: calc(469px);
+	position: absolute;
+margin-left: auto;
+transform: rotate(1deg);
+display: inline-block;
+background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+
+opacity: 0;
+}
+
+.welcome-bottom-text .realm span:nth-child(1) {
+	top: 0;
+   }
+   .welcome-bottom-text .realm span:nth-child(2) {
+	top: 25px;
+}
+.welcome-bottom-text .realm span:nth-child(3) {
+	top: 50px;
+}
+.welcome-bottom-text .realm span:nth-child(4) {
+	top: 75px;
+}
+
+.welcome-bottom-text .exactly-line span {
+	transform: rotate(0deg);
+	background: linear-gradient(to right, rgba(0, 0, 0, 1) , rgba(0, 0, 0, 1));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	opacity: 1;
+	transition: opacity 800ms linear, transform 800ms linear, background 800ms linear;
+}
+
+.welcome-bottom-text .realm span:nth-child(1) {
+	transform-origin: center left;
+   }
+   .welcome-bottom-text .realm span:nth-child(2) {
+	transition-delay: 200ms;
+	transform-origin: center left;
+}
+.welcome-bottom-text .realm span:nth-child(3) {
+	transition-delay: 400ms;
+	transform-origin: center left;
+}
+.welcome-bottom-text .realm span:nth-child(4) {
+	transition-delay: 600ms;
+	 transform-origin: center left;
+}
+
+
+
 
 .welcome-bottom-text .our-items {
 	position: absolute;
@@ -460,11 +559,41 @@ transform: translate(-50%, 10px) scale(0.8) /* Кінцева позиція к�
 	right: 487px;
 	bottom: -206px;
 }
+/* welcome */
+
+/* starf */
 
 .starf {
-	padding-top: 300px;
+	padding-top: 445px;
 	position: relative;
 }
+.starf-title-text {
+	position: absolute;
+	display: block;
+	height: 260px;
+    top: 190px;
+	background: linear-gradient(180deg, #FF00C7 8%, #0D0909 95%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font-size: 268px;
+    line-height: 268px;
+    text-transform: uppercase;
+	margin-bottom: -15px;
+	overflow: hidden;
+	display: flex;
+	overflow: hidden;
+}
+
+.letter {
+	display: inline-block;
+	margin-top: 190px;
+
+  }
+  
+.show {
+	margin-top: 0;
+	transition: margin-top 500ms linear;
+  }
 
 .marquee-infinite {
 	color: #fff;
@@ -481,14 +610,37 @@ transform: translate(-50%, 10px) scale(0.8) /* Кінцева позиція к�
 
 .marquee-infinite div h1 {
 	white-space: nowrap;
-	width: 100%;
-	background-color: #000;
-	border-bottom: 1px solid #EC01B9;
-	margin-top: -53px;
-	font-size: 18px;
-	text-transform: uppercase;
-	padding: 15px;
+    width: 100%;
+    border-bottom: 1px solid #EC01B9;
+    background: linear-gradient(to bottom, #ff00c7, #0f0c0c);
+    background-color: #000;
+    margin-top: -53px;
+    font-size: 18px;
+    text-transform: uppercase;
+    padding: 15px;
+    z-index: 24;
+    position: absolute;
+	transition:  background-color  500ms linear;
+	cursor: pointer;
 }
+
+.marquee-infinite div h1::before {
+	content: '';
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #000;
+    z-index: -1;
+	transition: background-color 500ms linear;
+}
+
+.marquee-infinite div h1:hover::before {
+	background-color: transparent; /* Прозорий фон при наведенні */
+	transition:  background-color  500ms linear;
+  }
+
 
 @keyframes marquee {
 	0% {
@@ -548,6 +700,7 @@ transform: translate(-50%, 10px) scale(0.8) /* Кінцева позиція к�
 	font-size: 45px;
 	color: #fff;
 }
+
 
 /* <!-- YEARS --> */
 
@@ -1091,3 +1244,5 @@ transform: translate(-50%, 10px) scale(0.8) /* Кінцева позиція к�
         transform: translateY(-100%);
     }
 }
+
+
