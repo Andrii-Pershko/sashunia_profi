@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./index.css" />
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
     <title>Bear NFT</title>
     <link rel="shortcut icon" type="image/png" href="./images/logo.png" />
   </head>
@@ -218,44 +222,52 @@
               </h1>
             </div>
           </div>
-          <div class="slider-bear">
-            <img
-              class="first-slide"
-              width="547"
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+            <div  class="swiper-slide">
+              <img
               src="./images/bearMid.png"
               alt="bear"
-            />
-            <img
-              class="second-slide"
-              width="909"
+            /></div>
+            <div class="swiper-slide">  <img
+             
               src="./images/bearMid.png"
               alt="bear"
-            />
-            <img
-              class="three-slide"
-              width="547"
+            /></div>
+            <div class="swiper-slide"><img
               src="./images/bearMid.png"
               alt="bear"
-            />
+            /></div>
+            <div class="swiper-slide"><img
+              src="./images/bearMid.png"
+              alt="bear"
+            /></div>
+            <div class="swiper-slide"><img
+              src="./images/bearMid.png"
+              alt="bear"
+            /></div>
+          </div></div>
+            <div id="video-container">
+              <video width="100%" loop autoplay muted>
+                  <source src="./images/101.webm" type="video/webm">
+                  Ваш браузер не підтримує відео тег.
+              </video>
+          </div>
+
             <img
-              class="esolent"
-              width="746"
-              src="./images/esolent.png"
-              alt="esolent"
-            />
-            <img
-              class="pagination-claw"
+              class="pagination-claw swiper-button-prev"
               src="./images/claw_left.png"
               alt="claw"
             />
             <p class="starf-paginations anton-text">
-              <span class="current-page">1</span>/6
+              <span class="current-page">1</span><span class="all-page">/0</span>
             </p>
             <img
-              class="pagination-claw right"
+              class="pagination-claw right swiper-button-next"
               src="./images/claw_left.png"
               alt="claw"
             />
+            <div class="swiper-pagination"></div>
           </div>
         </div>
       </div>
@@ -500,5 +512,54 @@
    
   </div>
   <script src="index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    var slideListLength = document.querySelectorAll('.swiper-wrapper .swiper-slide').length
+    document.querySelector('.all-page').textContent = `/${slideListLength}`;
+    var prev = document.querySelector('.swiper-button-prev')
+    var next = document.querySelector('.swiper-button-next')
+    var currentPage = document.querySelector('.current-page')
+
+    let count = 1
+
+    prev.addEventListener('click', ()=> {
+      console.log('p', count)
+      if (count -1 === 0) {
+        currentPage.textContent = slideListLength
+        count = Number(slideListLength)
+        return
+      }
+  
+      currentPage.textContent = count - 1
+      count -= 1
+    })
+
+    next.addEventListener('click', ()=> {
+      console.log('n', count)
+      if (count === Number(slideListLength)) {
+        currentPage.textContent = 1
+        count = 1
+        return
+      }
+      currentPage.textContent = count + 1
+      count += 1
+    })
+
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 3,
+      spaceBetween: 30,
+      loop: true,
+      speed: 100,
+      initialSlide: 0,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
   </body>
 </html>
