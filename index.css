@@ -1,9 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@200..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  user-select: none;
 }
 
 ::-webkit-scrollbar {
@@ -98,6 +103,9 @@ nav {
 header a,
 header .logo {
   cursor: pointer;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
   transition: all 500ms linear;
 }
 
@@ -330,6 +338,11 @@ header a:hover {
   position: absolute;
   top: 5px;
   right: 0;
+  transition: opacity 300ms linear;
+}
+
+.invest-container:hover .back-invest::after {
+  opacity: 1;
   transition: opacity 300ms linear;
 }
 
@@ -654,7 +667,7 @@ header a:hover {
   transform-origin: top center;
   height: 0px !important;
   overflow: hidden !important;
-  transition: transform 200ms linear, height 1000ms linear !important;
+  transition: transform 500ms linear, height 1000ms linear !important;
   transition-delay: 1s;
 }
 
@@ -664,7 +677,7 @@ header a:hover {
 
 .mySwiper .swiper-slide img {
   width: 547px;
-  transition: transform 200ms linear;
+  transition: transform 1000ms linear;
   transform-origin: top center;
 }
 
@@ -900,6 +913,8 @@ header a:hover {
   text-transform: uppercase;
   width: 1053px;
   font-size: 300px;
+  padding-top: 600px;
+  height: 600px;
   transform: rotate(-90deg) translate(-224px, -945px);
   position: absolute;
   background: linear-gradient(180deg, #fff 0%, #656565 100%);
@@ -908,6 +923,11 @@ header a:hover {
   color: #fff;
   line-height: 300px;
   user-select: none;
+  transition: padding 500ms linear;
+}
+
+.meet-our-team-show {
+  padding-top: 0px;
 }
 
 .team-list {
@@ -922,14 +942,22 @@ header a:hover {
 }
 
 .team-list li {
-  height: 1035px;
   width: 664px;
+  flex-shrink: 0;
+  overflow: hidden;
+  height: 0;
+  padding: 0 30px;
   background-color: #fff;
-  padding: 30px 30px 0 30px;
   margin-right: 40px;
   transform: perspective(5000px) rotateY(0deg);
   cursor: pointer;
-  transition: background-color 300ms linear, transform 500ms linear;
+  transition: background-color 300ms linear, transform 500ms linear,
+    height 500ms linear;
+}
+
+.team-list li.show-li {
+  padding: 30px 30px 0 30px;
+  height: 1035px;
 }
 
 .team-list .back-page {
@@ -962,7 +990,7 @@ header a:hover {
 .back-page span {
   display: block;
   text-align: center;
-  font-size: 35px;
+  font-size: 65px;
   width: 610px;
 }
 
@@ -1041,6 +1069,79 @@ header a:hover {
   padding: 15px;
 }
 
+.name::after {
+  content: ']';
+  position: absolute;
+  right: 30px;
+}
+
+.back-page {
+  background-color: #000 !important;
+  color: #fff;
+}
+
+.back-page span {
+  font-size: 140px;
+  line-height: 140px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.back-page h3 {
+  letter-spacing: 0;
+  font-size: 60px;
+  text-align: left;
+  line-height: 60px;
+}
+
+.contact-list-worker {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 60px;
+  overflow: hidden;
+  width: 664px;
+  background: #fff;
+}
+
+.contact-list-worker ul {
+  padding-left: 30px;
+  display: flex;
+  flex-wrap: nowrap;
+  margin-top: 16px;
+}
+
+.contact-list-worker li {
+  padding: 0;
+  margin: 0;
+  height: 25px;
+  width: auto;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+.contact-list-worker li a {
+  text-decoration: none;
+  color: #000;
+  transition: color 300ms linear;
+}
+
+.contact-list-worker li a:hover {
+  text-decoration: none;
+  color: #ec01b9;
+}
+
+.contact-list-worker li:hover {
+  background-color: #fff;
+}
+
+.contact-list-worker li:not(:last-child) {
+  margin-right: 30px;
+}
+
 @keyframes marquee-text {
   0% {
     transform: translateX(0%);
@@ -1096,15 +1197,14 @@ header a:hover {
 
 .hidden-q li {
   overflow: hidden;
+  margin-bottom: 60px;
+  pointer-events: none;
   height: 70px;
   transition: height 300ms linear;
   cursor: pointer;
-}
-
-.hidden-q h3 {
-  font-size: 60px;
-  line-height: 72px;
-  position: relative;
+  transform: rotate(5deg);
+  transform-origin: left center;
+  transition: height 300ms linear, transform 500ms linear;
 }
 
 .hidden-q p {
@@ -1116,9 +1216,22 @@ header a:hover {
 .hidden-q .open {
   height: 160px;
 }
+.hidden-q li h3 {
+  font-size: 60px;
+  line-height: 72px;
+  position: relative;
+  background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  opacity: 0;
+}
 
-.hidden-q li {
-  margin-bottom: 60px;
+.hidden-q li h3.normal {
+  transform: rotate(0deg);
+  opacity: 1;
+  transition: opacity 1s linear;
+}
+.hidden-q li.normal {
+  transform: rotate(0deg);
+  pointer-events: all;
 }
 
 .hidden-q h3::after {
@@ -1147,6 +1260,22 @@ header a:hover {
   height: 0;
   top: 40%;
   transition: height 300ms linear, top 200ms linear;
+}
+
+.claw-thumb {
+  width: 180px;
+  height: 180px;
+}
+
+.claw-thumb div {
+  width: 0;
+  overflow: hidden;
+  height: 180px;
+  transition: width 1000ms linear;
+}
+
+.claw-thumb div.normal {
+  width: 180px;
 }
 
 .claw-faq-2 {
@@ -1209,7 +1338,7 @@ header a:hover {
   margin-top: 50px;
 }
 
-.footer div:not(:nth-child(2)) {
+.right-footer {
   margin-left: auto;
   position: relative;
 }
@@ -1262,6 +1391,91 @@ header a:hover {
   letter-spacing: 0;
 }
 
+.discord-container {
+  position: absolute;
+  left: -123px;
+  top: 480px;
+  width: 490px;
+  margin: 0 !important;
+}
+
+.discord-container div {
+  margin: 0 !important;
+}
+
+.discord-container img {
+  width: 490px;
+}
+
+.back-discord {
+  width: 0;
+  overflow: hidden;
+}
+
+.front-discord {
+  width: 490px;
+}
+
+.back-discord {
+  position: absolute;
+  left: 490px;
+  top: 0px;
+  height: 280px;
+  transition: all 500ms linear;
+}
+
+.front-discord {
+  overflow: hidden;
+  transition: all 500ms linear;
+}
+
+.discord-container:hover .front-discord {
+  width: 200px;
+}
+
+.discord-container:hover .back-discord {
+  left: -50px;
+  width: 250px;
+}
+
+.discord-container .back-discord::after {
+  content: '';
+  display: block;
+  width: 9px;
+  height: 73%;
+  opacity: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(27, 27, 27, 1) 0%,
+    rgba(227, 227, 227, 1) 47%,
+    rgba(93, 93, 93, 1) 100%
+  );
+  position: absolute;
+  top: 2px;
+  right: 0;
+  transition: opacity 500ms linear;
+}
+
+.discord-container:hover .back-discord::after {
+  opacity: 1;
+  transition: opacity 500ms linear;
+}
+
+.in-discord {
+  color: #ff00c7;
+  letter-spacing: 0;
+  position: absolute;
+  width: 210px;
+  font-size: 40px;
+  right: 123px;
+  bottom: 108px;
+  z-index: -1;
+}
+
+.footer-navigation li {
+  text-transform: uppercase;
+}
+
 @keyframes marquee-text-footer {
   0% {
     transform: translateX(0%);
@@ -1271,6 +1485,8 @@ header a:hover {
     transform: translateX(-10.75%);
   }
 }
+
+/* footer */
 
 /* preloader */
 #preloader {
