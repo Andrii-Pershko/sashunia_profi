@@ -5,25 +5,23 @@ export default function showWelcomeTitle() {
   const claw = document.querySelector('.welcome-claw');
   const realm = document.querySelector('.realm');
 
-  if (title) {
-    const observer = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            claw.classList.add('show');
-            title.classList.add('visible');
-            spans.forEach(span => {
-              span.classList.add('visible');
-            });
-            observer.unobserve(entry.target); // Припинити спостереження після спрацьовування
-          }
-        });
-      },
-      { threshold: 0.2 }
-    ); // 20% видимості для спрацьовування
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          claw.classList.add('show');
+          title.classList.add('visible');
+          spans.forEach(span => {
+            span.classList.add('visible');
+          });
+          observer.unobserve(entry.target); // Припинити спостереження після спрацьовування
+        }
+      });
+    },
+    { threshold: 0.2 }
+  ); // 20% видимості для спрацьовування
 
-    observer.observe(title);
-  }
+  observer.observe(title);
 
   const observerRealm = new IntersectionObserver(
     (entries, observer) => {

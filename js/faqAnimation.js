@@ -17,50 +17,45 @@ faqList.forEach(li =>
   })
 );
 
-const observerRealm = new IntersectionObserver(
-  (entries, observer) => {
-    const processEntry = index => {
-      if (index === faqListTitle.length) {
+const options = {
+  threshold: 0.8, // Активація коли хоча б 10% елемента стає видимим
+};
+
+const showBlockFAQ = function (entries, observer) {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      //show claw
+      setTimeout(() => {
         clawOne.classList.add('normal');
         setTimeout(() => {
           clawTwo.classList.add('normal');
         }, 1000);
-        return;
-      }
+      }, 2000);
 
-      const entry = faqListTitle[index];
-      const li = listTitles[index];
-      li.classList.add('normal');
+      faqListTitle.forEach((item, index) => {
+        setTimeout(() => {
+          listTitles[index].classList.add('normal');
+          let count = 0;
+          const interval = setInterval(() => {
+            if (count <= 150) {
+              item.style.background = `linear-gradient(to right, rgba(255, 255, 255, 1) ${
+                count - 50
+              }%, rgba(255, 255, 255, 0) ${count}%)`;
+              item.style.color = 'transparent';
+              item.style.setProperty('-webkit-background-clip', 'text');
+              item.classList.add('normal');
+              count++;
+            } else {
+              clearInterval(interval);
+            }
+          }, 10);
+        }, index * 300);
+      });
 
-      let count = 0;
-      const interval = setInterval(() => {
-        if (count <= 150) {
-          entry.style.background = `linear-gradient(to right, rgba(255, 255, 255, 1) ${
-            count - 50
-          }%, rgba(255, 255, 255, 0) ${count}%)`;
-          entry.style.color = 'transparent';
-          entry.style.setProperty('-webkit-background-clip', 'text');
-          entry.classList.add('normal');
-          count++;
-        } else {
-          clearInterval(interval);
-        }
-      }, 10); // Змінюйте інтервал для контролю швидкості
+      observer.unobserve(entry.target); // Припинити спостереження за елементом
+    }
+  });
+};
 
-      entry.classList.add('exactly-line');
-      observer.unobserve(entry); // Припинити спостереження після спрацьовування
-      setTimeout(() => processEntry(index + 1), 300); // Затримка 1 секунда перед наступною ітерацією
-    };
-
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        processEntry(0); // Почати обробку з першого елемента
-      }
-    });
-  },
-  { threshold: 0.9 }
-); // 90% видимості для спрацьовування
-
-faqListTitle.forEach(h3 => {
-  observerRealm.observe(h3);
-});
+const observer = new IntersectionObserver(showBlockFAQ, options);
+observer.observe(document.querySelector('.hidden-q'));
