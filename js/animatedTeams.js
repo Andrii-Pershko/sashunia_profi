@@ -24,6 +24,7 @@ export default function teamShow() {
     (entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
+          document.querySelector('.team-list').classList.add('team-list-allow');
           workerCards.forEach((letter, index) => {
             setTimeout(() => {
               letter.classList.add('show-li');
@@ -36,5 +37,5 @@ export default function teamShow() {
     { threshold: 0.5 }
   );
 
-  listTeam.observe(document.querySelector('.team-list'));
+  listTeam.observe(document.querySelector('.flag-teams'));
 }
