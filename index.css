@@ -87,6 +87,8 @@ header ul {
 
 nav {
   width: 500px;
+  position: relative;
+  z-index: 10;
 }
 
 header a,
@@ -1305,6 +1307,25 @@ header a:hover {
   left: 780px;
   top: 289px;
   transform: rotate(191deg);
+  z-index: 1;
+  margin: 0 !important;
+}
+
+.footer-claw .hidden-box {
+  position: relative;
+  overflow: hidden;
+  width: 490px;
+  height: 0;
+}
+.footer-claw .show-claw {
+  height: 400px;
+  transition: height 300ms 600ms linear;
+}
+
+.footer-claw img {
+  width: 418px;
+  position: absolute;
+  bottom: 0;
 }
 
 .footer-title {
@@ -1312,11 +1333,37 @@ header a:hover {
   line-height: 233px;
   width: 1085px;
   letter-spacing: -6px;
-  background: linear-gradient(180deg, #fff 0%, #656565 100%);
+  /* background: linear-gradient(180deg, #fff 0%, #656565 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+  letter-spacing: -6px;
+}
+
+.footer-title span {
+  overflow: hidden;
+  display: block;
+}
+.footer-title span span.inside {
+  transform: translate(0px, 240px);
+  display: block;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  color: #fff;
-  letter-spacing: -6px;
+  display: inline-block;
+}
+
+.footer-title span span.inside.visible {
+  transform: translate(0px, 0px);
+  transition: transform 300ms linear;
+}
+
+.footer-title-one {
+  background: linear-gradient(180deg, #ffffff 0%, #7d7d7d 100%);
+}
+.footer-title-second {
+  background: linear-gradient(180deg, #7d7d7d 0%, #646464 100%);
+}
+.footer-title-three {
+  background: linear-gradient(180deg, #646464 0%, #222222 100%);
 }
 
 .footer ul {
@@ -1346,6 +1393,19 @@ header a:hover {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   color: #fff;
+}
+
+.foote-we span {
+  transform: rotate(5deg);
+  transform-origin: left;
+  display: block;
+  opacity: 0;
+}
+
+.foote-we span.normal {
+  opacity: 1;
+  transform: rotate(0deg);
+  transition: all 1s linear;
 }
 
 .discort {
@@ -1411,7 +1471,7 @@ header a:hover {
   position: absolute;
   left: 490px;
   top: 0px;
-  height: 280px;
+  height: 210px;
   transition: all 500ms linear;
 }
 
@@ -1433,7 +1493,7 @@ header a:hover {
   content: '';
   display: block;
   width: 9px;
-  height: 73%;
+  height: 98%;
   opacity: 0;
   background: linear-gradient(
     90deg,
@@ -1459,12 +1519,22 @@ header a:hover {
   width: 210px;
   font-size: 40px;
   right: 123px;
-  bottom: 108px;
+  bottom: 162px;
   z-index: -1;
 }
 
 .footer-navigation li {
   text-transform: uppercase;
+}
+
+.footer-navigation a {
+  text-decoration: none;
+  color: #000;
+  transition: color 300ms linear;
+}
+
+.footer-navigation a:hover {
+  color: #ff00c7;
 }
 
 @keyframes marquee-text-footer {
